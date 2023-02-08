@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -7,6 +7,7 @@ from .serializers import AvaliacaoSerializer, CursoSerializer
 
 
 class CursoViewsSet(viewsets.ModelViewSet):
+    # permission_classes = (permissions.DjangoModelPermissions, )
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
 

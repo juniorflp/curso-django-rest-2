@@ -15,7 +15,7 @@ class CursoViewsSet(viewsets.ModelViewSet):
     # nao usa paginação global pq é uma classe customizada
     @action(detail=True, methods=['get'])
     def avaliacoes(self, request, pk=None):
-        self.pagination_class.page_size = 2
+        self.pagination_class.page_size = 10
         avaliacoes = Avaliacao.objects.filter(curso_id=pk)
         page = self.paginate_queryset(avaliacoes)
 
